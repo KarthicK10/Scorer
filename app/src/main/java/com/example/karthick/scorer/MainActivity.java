@@ -1,4 +1,4 @@
-package com.example.karthick.refresh;
+package com.example.karthick.scorer;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

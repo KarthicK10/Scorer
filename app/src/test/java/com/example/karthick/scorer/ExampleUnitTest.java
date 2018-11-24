@@ -1,4 +1,4 @@
-package com.example.karthick.refresh;
+package com.example.karthick.scorer;
 
 import org.junit.Test;
 
