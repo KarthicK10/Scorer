@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    /*Method to calculate and update score totals for each player*/
     private int calculateTotals(){
         TableLayout scoresTableLayout = (TableLayout) findViewById(R.id.scores_table);
         final int numberOfRows = scoresTableLayout.getChildCount();
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             TableRow totalRow = (TableRow) scoresTableLayout.getChildAt(numberOfRows-1);
             final int numberOfCols = firstRow.getChildCount();
             if(numberOfCols > 0){
+                /*Iterate all players to calculate their score totals */
                 for(int colNum=1; colNum<numberOfCols-1; colNum++){
                     Integer total = 0;
                     for(int rowNum=1; rowNum<numberOfRows-1; rowNum++){
