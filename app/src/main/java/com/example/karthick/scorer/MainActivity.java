@@ -8,8 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,20 +24,47 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        TableLayout scoresTableLayout = (TableLayout) findViewById(R.id.scores_table);
+        final int numberOfRows = scoresTableLayout.getChildCount();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "This is Super Sunday", Snackbar.LENGTH_LONG)
+                int a = calculateTotals();
+                Snackbar.make(view, "Total Rows : " + a, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
-        createColumns();
+
     }
 
-    private void createColumns(){
-        TableRow row = new TableRow(this);
+    private int calculateTotals(){
+        TableLayout scoresTableLayout = (TableLayout) findViewById(R.id.scores_table);
+        final int numberOfRows = scoresTableLayout.getChildCount();
+        if(numberOfRows > 0 ){
+            TableRow firstRow = (TableRow) scoresTableLayout.getChildAt(0);
+            TableRow totalRow = (TableRow) scoresTableLayout.getChildAt(numberOfRows-1);
+            final int numberOfCols = firstRow.getChildCount();
+            if(numberOfCols > 0){
+                for(int colNum=1; colNum<numberOfCols-1; colNum++){
+                    Integer total = 0;
+                    for(int rowNum=1; rowNum<numberOfRows-1; rowNum++){
+                        TableRow currentRow = (TableRow) scoresTableLayout.getChildAt(rowNum);
+                        EditText currentCell = (EditText) currentRow.getChildAt(colNum);
+                        int currentValue = Integer.parseInt(currentCell.getText().toString());
+                        total = total + currentValue;
+                    }
+                    TextView totalCell = (TextView) totalRow.getChildAt(colNum);
+                    String totalValue = total.toString();
+                    totalCell.setText(totalValue);
+                }
+            }
+        }
+
+        return 0;
     }
 
     @Override
