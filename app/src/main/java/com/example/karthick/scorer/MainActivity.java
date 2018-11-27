@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         scoresTableLayout = (TableLayout) findViewById(R.id.scores_table);
-        final int numberOfRows = scoresTableLayout.getChildCount();
 
         //Add Players
         playersList.add("Andrews");
@@ -42,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         playersList.add("Nandhini");
         playersList.add("Anand");
         playersList.add("Sylvia");
+
+        addHeader(this);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -59,11 +60,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*Method to add Header row with Player names*/
+    private void addHeader(Context context){
+        //Create Header Row
+        TableRow headerRow = new TableRow(context);
+
+        //Add Round Text View
+        TextView roundTextView = new TextView(context);
+        TableRow.LayoutParams roundViewParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+        roundTextView.setLayoutParams(roundViewParams);
+        roundTextView.setGravity(Gravity.CENTER);
+        roundTextView.setTypeface(Typeface.DEFAULT_BOLD);
+        roundTextView.setText(R.string.round_label);
+        headerRow.addView(roundTextView);
+
+        //Add Player Names
+        for(String player: playersList){
+            TextView playerNameText = new TextView(context);
+            TableRow.LayoutParams playerNameTextParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+            playerNameText.setLayoutParams(playerNameTextParams);
+            playerNameText.setText(player);
+            playerNameText.setGravity(Gravity.CENTER);
+            playerNameText.setTypeface(Typeface.DEFAULT_BOLD);
+            headerRow.addView(playerNameText);
+        }
+
+        //Add header to table
+        scoresTableLayout.addView(headerRow, 0);
+    }
+
     /*Method to add new row for next Round*/
     private void nextRound(Context context){
-        //scoresTableLayout = (TableLayout) findViewById(R.id.scores_table);
         //Create New Row
-        System.out.println("next Round Entry");
         TableRow newRow = new TableRow(context);
         newRow.setBackgroundColor(ContextCompat.getColor(context, R.color.colorScoresRowBG));
         TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams();
@@ -84,13 +112,13 @@ public class MainActivity extends AppCompatActivity {
             EditText scoreText = new EditText(context);
             TableRow.LayoutParams scoreTextParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1f);
             scoreText.setLayoutParams(scoreTextParams);
-            scoreText.setText("0");
+            scoreText.setText(R.string.default_score);
             scoreText.setGravity(Gravity.CENTER);
             newRow.addView(scoreText);
         }
 
         scoresTableLayout.addView(newRow, scoresTableLayout.getChildCount()-1);
-        System.out.println("next Round close");
+
     }
 
     /*Method to calculate and update score totals for each player*/

@@ -19,66 +19,6 @@
             android:layout_marginVertical="30dp"
             android:layout_marginHorizontal="10dp"
             android:background="@color/colorScoresTableBG">
-            <TableRow>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Round"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"/>
-
-                <TextView
-                android:text="Andrews"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textStyle="bold"/>
-
-                <TextView
-                    android:text="Kanchana"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:text="KarthicK"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:text="Nandhini"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:text="Anand"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:text="Sylvia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"/>
-
-
-            </TableRow>
 
             <TableRow>
 
