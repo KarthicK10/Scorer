@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         playersList.add("Sylvia");
 
         addHeader(this);
+        addFooter(this);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -87,6 +88,35 @@ public class MainActivity extends AppCompatActivity {
 
         //Add header to table
         scoresTableLayout.addView(headerRow, 0);
+    }
+
+    /*Method to add Footer row with default totals*/
+    private void addFooter(Context context){
+        //Create Footer Row
+        TableRow footerRow = new TableRow(context);
+
+        //Add Total Text View
+        TextView totalTextView = new TextView(context);
+        TableRow.LayoutParams totalViewParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+        totalTextView.setLayoutParams(totalViewParams);
+        totalTextView.setGravity(Gravity.CENTER);
+        totalTextView.setTypeface(Typeface.DEFAULT_BOLD);
+        totalTextView.setText(R.string.total_label);
+        footerRow.addView(totalTextView);
+
+        //Add default total for each player
+        for(String player: playersList){
+            TextView totalText = new TextView(context);
+            TableRow.LayoutParams totalTextParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 1f);
+            totalText.setLayoutParams(totalTextParams);
+            totalText.setText(R.string.default_score);
+            totalText.setGravity(Gravity.CENTER);
+            totalText.setTypeface(Typeface.DEFAULT_BOLD);
+            footerRow.addView(totalText);
+        }
+
+        //Add footer to table
+        scoresTableLayout.addView(footerRow, scoresTableLayout.getChildCount());
     }
 
     /*Method to add new row for next Round*/
