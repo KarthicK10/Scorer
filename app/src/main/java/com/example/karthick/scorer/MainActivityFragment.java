@@ -19,13 +19,6 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View roundsListView = inflater.inflate(R.layout.fragment_game, container, false);
 
-        String[] roundScores = {"20", "30", "80", "10", "D", "45"};
-        createColumns();
-
         return roundsListView;
-    }
-
-    private void createColumns(){
-
     }
 }
