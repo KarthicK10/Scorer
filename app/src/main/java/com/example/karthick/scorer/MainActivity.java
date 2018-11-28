@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         addHeader(this);
         addFooter(this);
+        nextRound(this);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
