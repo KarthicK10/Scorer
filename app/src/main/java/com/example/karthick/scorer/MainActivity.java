@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         scoresTableLayout = (TableLayout) findViewById(R.id.scores_table);
 
         //Add Players
-        playersList.add("Andrews");
-        playersList.add("Kanchana");
+        //playersList.add("Andrews");
+        //playersList.add("Kanchana");
         playersList.add("KarthicK");
         playersList.add("Nandhini");
-        playersList.add("Anand");
+       // playersList.add("Anand");
         playersList.add("Sylvia");
 
         addHeader(this);
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                //int a = calculateTotals();
+                calculateTotals();
                 nextRound(getBaseContext());
                 Snackbar.make(view, "Total Rows : " , Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*Method to calculate and update score totals for each player*/
-    private int calculateTotals(){
+    private void calculateTotals(){
         //scoresTableLayout = (TableLayout) findViewById(R.id.scores_table);
         final int numberOfRows = scoresTableLayout.getChildCount();
         if(numberOfRows > 0 ){
@@ -175,8 +175,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-
-        return 0;
     }
 
     @Override
