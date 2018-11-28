@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
             final int numberOfCols = firstRow.getChildCount();
             if(numberOfCols > 0){
                 /*Iterate all players to calculate their score totals */
-                for(int colNum=1; colNum<numberOfCols-1; colNum++){
+                for(int colNum=1; colNum<numberOfCols; colNum++){
                     Integer total = 0;
                     for(int rowNum=1; rowNum<numberOfRows-1; rowNum++){
                         TableRow currentRow = (TableRow) scoresTableLayout.getChildAt(rowNum);
